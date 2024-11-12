@@ -1,0 +1,98 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- description: Generated server url
+  url: http://localhost:8080
+paths:
+  /songs:
+    get:
+      operationId: getSongs
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int64
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SongDTO'
+                type: array
+          description: OK
+      tags:
+      - song-controller-api-impl
+      x-accepts: application/json
+    post:
+      operationId: createSong
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SongDTO'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SongDTO'
+          description: OK
+      tags:
+      - song-controller-api-impl
+      x-content-type: application/json
+      x-accepts: application/json
+    put:
+      operationId: updateSong
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SongDTO'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SongDTO'
+          description: OK
+      tags:
+      - song-controller-api-impl
+      x-content-type: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    SongDTO:
+      example:
+        file: file
+        author: author
+        name: name
+        id: 0
+      properties:
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+        author:
+          type: string
+        file:
+          type: string
+      type: object
+

@@ -1,0 +1,83 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /songs:
+    get:
+      tags:
+        - song-controller-api-impl
+      operationId: getSongs
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SongDTO'
+    put:
+      tags:
+        - song-controller-api-impl
+      operationId: updateSong
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SongDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SongDTO'
+    post:
+      tags:
+        - song-controller-api-impl
+      operationId: createSong
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SongDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SongDTO'
+components:
+  schemas:
+    SongDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        author:
+          type: string
+        file:
+          type: string
