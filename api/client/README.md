@@ -89,7 +89,7 @@ import com.usj.musicquizz.api.SongControllerApiImplApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080");
+    defaultClient.setBasePath("http://172.17.0.2:8080");
 
     SongControllerApiImplApi apiInstance = new SongControllerApiImplApi(defaultClient);
     SongDTO songDTO = new SongDTO(); // SongDTO | 
@@ -110,7 +110,7 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://172.17.0.2:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

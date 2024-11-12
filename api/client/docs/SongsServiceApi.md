@@ -1,6 +1,6 @@
 # SongsServiceApi
 
-All URIs are relative to *http://10.0.2.2:8080/MusicQuiz/api*
+All URIs are relative to *http://172.17.0.2:8080/MusicQuiz/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -28,7 +28,7 @@ import com.usj.musicquizz.api.SongsServiceApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://10.0.2.2:8080/MusicQuiz/api");
+    defaultClient.setBasePath("http://172.17.0.2:8080/MusicQuiz/api");
 
     SongsServiceApi apiInstance = new SongsServiceApi(defaultClient);
     try {
@@ -90,7 +90,7 @@ import com.usj.musicquizz.api.SongsServiceApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://10.0.2.2:8080/MusicQuiz/api");
+    defaultClient.setBasePath("http://172.17.0.2:8080/MusicQuiz/api");
 
     SongsServiceApi apiInstance = new SongsServiceApi(defaultClient);
     Integer id = 56; // Integer | Song id to retrieve.

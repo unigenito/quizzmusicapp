@@ -1,6 +1,6 @@
 # SongControllerApiImplApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://172.17.0.2:8080*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -27,7 +27,7 @@ import com.usj.musicquizz.api.SongControllerApiImplApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080");
+    defaultClient.setBasePath("http://172.17.0.2:8080");
 
     SongControllerApiImplApi apiInstance = new SongControllerApiImplApi(defaultClient);
     SongDTO songDTO = new SongDTO(); // SongDTO | 
@@ -87,7 +87,7 @@ import com.usj.musicquizz.api.SongControllerApiImplApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080");
+    defaultClient.setBasePath("http://172.17.0.2:8080");
 
     SongControllerApiImplApi apiInstance = new SongControllerApiImplApi(defaultClient);
     Integer limit = 56; // Integer | 
@@ -149,7 +149,7 @@ import com.usj.musicquizz.api.SongControllerApiImplApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080");
+    defaultClient.setBasePath("http://172.17.0.2:8080");
 
     SongControllerApiImplApi apiInstance = new SongControllerApiImplApi(defaultClient);
     SongDTO songDTO = new SongDTO(); // SongDTO | 
