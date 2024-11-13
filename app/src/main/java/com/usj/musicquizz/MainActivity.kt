@@ -1,18 +1,23 @@
 package com.usj.musicquizz
 
 import android.animation.ObjectAnimator
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.ViewTreeObserver
 import android.view.animation.AnticipateInterpolator
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.splashscreen.SplashScreenViewProvider
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
-import com.usj.musicquizzapi.api.SongsServiceApi
+import androidx.lifecycle.ViewModelProvider
 import com.usj.musicquizz.databinding.ActivityMainBinding
+import com.usj.musicquizz.model.QuizzViewModel
+import com.usj.musicquizzapi.api.SongsServiceApi
+import com.usj.musicquizzapi.invoker.ApiException
 import com.usj.musicquizzapi.model.Song
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,8 +25,10 @@ import kotlinx.coroutines.launch
 import java.io.IOException
 
 class MainActivity : AppCompatActivity(), AnswersListener {
-var isReady:Boolean = false
-    val songs: MutableList<Song>? = null
+    private var isReady:Boolean = false
+    private var point:Int = 0
+    private lateinit var songs: MutableList<Song>
+
     private val view by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
@@ -42,8 +49,10 @@ var isReady:Boolean = false
             animateSplashScreen(splashScreenView)
         }
 
-
         super.onCreate(savedInstanceState)
+
+        val songsVM: QuizzViewModel = ViewModelProvider(this)[QuizzViewModel::class.java]
+
         // Set up an OnPreDrawListener to the root view.
         val content: View = findViewById(android.R.id.content)
         content.viewTreeObserver.addOnPreDrawListener(
@@ -51,6 +60,7 @@ var isReady:Boolean = false
                 override fun onPreDraw(): Boolean {
                     // Check whether the initial data is ready.
                     return if (isReady) {
+                        songsVM.mutableList.value = songs
                         // The content is ready. Start drawing.
                         content.viewTreeObserver.removeOnPreDrawListener(this)
                         true
@@ -67,30 +77,39 @@ var isReady:Boolean = false
         searchSongs()
     }
 
-    override fun onStart() {
-        super.onStart()
-        //isReady = true
+    private  fun replaceFragment(fragment: Fragment){
+        findViewById<FragmentContainerView>(R.id.fragmet_container)
+            ?.let {
+                    frameLayout ->
+                supportFragmentManager.beginTransaction()
+                    .replace(frameLayout.id, fragment)
+                    .commit()
+            }
     }
+
+
 
     private fun searchSongs(){
         try {
+
             scope.launch {
-                val songs = songsServiceApi.findAll()
+                songs = songsServiceApi.findAll()
                 if (songs.isNotEmpty()){
+
                     isReady = true
-                    findViewById<FragmentContainerView>(R.id.fragmet_container)
-                        ?.let {
-                            frameLayout ->
-                            val homeFragment = HomeFragment()
-                        supportFragmentManager.beginTransaction()
-                            .replace(frameLayout.id, homeFragment)
-                            .commit()
-                    }
+                    replaceFragment(HomeFragment())
+
                 }
                 print(songs)
             }
-        }catch (e:IOException){
-
+        }
+        catch (e: ApiException){
+            Log.d(e.toString(), e.message.toString())
+            isReady = true
+        }
+        catch (e:IOException){
+            isReady = true
+            Toast.makeText(this, "There was an error getting songs.", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -115,5 +134,6 @@ var isReady:Boolean = false
 
     override fun onSelected(questionId: Int, name:String) {
         Toast.makeText(this, name, Toast.LENGTH_LONG).show()
+        replaceFragment(QuizFragment.newInstance(name))
     }
 }
