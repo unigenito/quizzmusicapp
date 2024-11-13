@@ -80,30 +80,30 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.SongControllerApiImplApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://172.17.0.2:8080");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://172.17.0.2:8080");
 
-    SongControllerApiImplApi apiInstance = new SongControllerApiImplApi(defaultClient);
-    SongDTO songDTO = new SongDTO(); // SongDTO | 
-    try {
-      SongDTO result = apiInstance.createSong(songDTO);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SongControllerApiImplApi#createSong");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        SongControllerApiImplApi apiInstance = new SongControllerApiImplApi(defaultClient);
+        SongDTO songDTO = new SongDTO(); // SongDTO | 
+        try {
+            SongDTO result = apiInstance.createSong(songDTO);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SongControllerApiImplApi#createSong");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 
 ```

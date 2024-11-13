@@ -23,31 +23,32 @@ Create user
 This can only be done by the logged in user.
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.UserApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    UserApi apiInstance = new UserApi(defaultClient);
-    User body = new User(); // User | Created user object
-    try {
-      apiInstance.createUser(body);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UserApi#createUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UserApi apiInstance = new UserApi(defaultClient);
+        User body = new User(); // User | Created user object
+        try {
+            apiInstance.createUser(body);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserApi#createUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -82,31 +83,32 @@ No authorization required
 Creates list of users with given input array
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.UserApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    UserApi apiInstance = new UserApi(defaultClient);
-    List<User> body = Arrays.asList(); // List<User> | List of user object
-    try {
-      apiInstance.createUsersWithArrayInput(body);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UserApi#createUsersWithArrayInput");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UserApi apiInstance = new UserApi(defaultClient);
+        List<User> body = Arrays.asList(); // List<User> | List of user object
+        try {
+            apiInstance.createUsersWithArrayInput(body);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserApi#createUsersWithArrayInput");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -141,31 +143,32 @@ No authorization required
 Creates list of users with given input array
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.UserApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    UserApi apiInstance = new UserApi(defaultClient);
-    List<User> body = Arrays.asList(); // List<User> | List of user object
-    try {
-      apiInstance.createUsersWithListInput(body);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UserApi#createUsersWithListInput");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UserApi apiInstance = new UserApi(defaultClient);
+        List<User> body = Arrays.asList(); // List<User> | List of user object
+        try {
+            apiInstance.createUsersWithListInput(body);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserApi#createUsersWithListInput");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -202,31 +205,32 @@ Delete user
 This can only be done by the logged in user.
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.UserApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    UserApi apiInstance = new UserApi(defaultClient);
-    String username = "username_example"; // String | The name that needs to be deleted
-    try {
-      apiInstance.deleteUser(username);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UserApi#deleteUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UserApi apiInstance = new UserApi(defaultClient);
+        String username = "username_example"; // String | The name that needs to be deleted
+        try {
+            apiInstance.deleteUser(username);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserApi#deleteUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -262,32 +266,33 @@ No authorization required
 Get user by user name
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.UserApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    UserApi apiInstance = new UserApi(defaultClient);
-    String username = "username_example"; // String | The name that needs to be fetched. Use user1 for testing. 
-    try {
-      User result = apiInstance.getUserByName(username);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UserApi#getUserByName");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UserApi apiInstance = new UserApi(defaultClient);
+        String username = "username_example"; // String | The name that needs to be fetched. Use user1 for testing. 
+        try {
+            User result = apiInstance.getUserByName(username);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserApi#getUserByName");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -324,33 +329,34 @@ No authorization required
 Logs user into the system
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.UserApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    UserApi apiInstance = new UserApi(defaultClient);
-    String username = "username_example"; // String | The user name for login
-    String password = "password_example"; // String | The password for login in clear text
-    try {
-      String result = apiInstance.loginUser(username, password);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UserApi#loginUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UserApi apiInstance = new UserApi(defaultClient);
+        String username = "username_example"; // String | The user name for login
+        String password = "password_example"; // String | The password for login in clear text
+        try {
+            String result = apiInstance.loginUser(username, password);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserApi#loginUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -387,30 +393,31 @@ No authorization required
 Logs out current logged in user session
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.UserApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    UserApi apiInstance = new UserApi(defaultClient);
-    try {
-      apiInstance.logoutUser();
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UserApi#logoutUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UserApi apiInstance = new UserApi(defaultClient);
+        try {
+            apiInstance.logoutUser();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserApi#logoutUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -444,32 +451,33 @@ Updated user
 This can only be done by the logged in user.
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.UserApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    UserApi apiInstance = new UserApi(defaultClient);
-    String username = "username_example"; // String | name that need to be updated
-    User body = new User(); // User | Updated user object
-    try {
-      apiInstance.updateUser(username, body);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UserApi#updateUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UserApi apiInstance = new UserApi(defaultClient);
+        String username = "username_example"; // String | name that need to be updated
+        User body = new User(); // User | Updated user object
+        try {
+            apiInstance.updateUser(username, body);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserApi#updateUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 

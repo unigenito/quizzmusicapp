@@ -21,36 +21,36 @@ All URIs are relative to *https://petstore.swagger.io/v2*
 Add a new pet to the store
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.auth.*;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.PetApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
-    
-    // Configure OAuth2 access token for authorization: petstore_auth
-    OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
-    petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    PetApi apiInstance = new PetApi(defaultClient);
-    Pet body = new Pet(); // Pet | Pet object that needs to be added to the store
-    try {
-      apiInstance.addPet(body);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PetApi#addPet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        // Configure OAuth2 access token for authorization: petstore_auth
+        OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
+        petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+        PetApi apiInstance = new PetApi(defaultClient);
+        Pet body = new Pet(); // Pet | Pet object that needs to be added to the store
+        try {
+            apiInstance.addPet(body);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PetApi#addPet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -85,37 +85,37 @@ null (empty response body)
 Deletes a pet
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.auth.*;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.PetApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
-    
-    // Configure OAuth2 access token for authorization: petstore_auth
-    OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
-    petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    PetApi apiInstance = new PetApi(defaultClient);
-    Long petId = 56L; // Long | Pet id to delete
-    String apiKey = "apiKey_example"; // String | 
-    try {
-      apiInstance.deletePet(petId, apiKey);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PetApi#deletePet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        // Configure OAuth2 access token for authorization: petstore_auth
+        OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
+        petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+        PetApi apiInstance = new PetApi(defaultClient);
+        Long petId = 56L; // Long | Pet id to delete
+        String apiKey = "apiKey_example"; // String | 
+        try {
+            apiInstance.deletePet(petId, apiKey);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PetApi#deletePet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -154,37 +154,37 @@ Finds Pets by status
 Multiple status values can be provided with comma separated strings
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.auth.*;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.PetApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
-    
-    // Configure OAuth2 access token for authorization: petstore_auth
-    OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
-    petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    PetApi apiInstance = new PetApi(defaultClient);
-    List<String> status = Arrays.asList("available"); // List<String> | Status values that need to be considered for filter
-    try {
-      List<Pet> result = apiInstance.findPetsByStatus(status);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PetApi#findPetsByStatus");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        // Configure OAuth2 access token for authorization: petstore_auth
+        OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
+        petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+        PetApi apiInstance = new PetApi(defaultClient);
+        List<String> status = Arrays.asList("available"); // List<String> | Status values that need to be considered for filter
+        try {
+            List<Pet> result = apiInstance.findPetsByStatus(status);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PetApi#findPetsByStatus");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -222,37 +222,37 @@ Finds Pets by tags
 Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.auth.*;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.PetApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
-    
-    // Configure OAuth2 access token for authorization: petstore_auth
-    OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
-    petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    PetApi apiInstance = new PetApi(defaultClient);
-    List<String> tags = Arrays.asList(); // List<String> | Tags to filter by
-    try {
-      List<Pet> result = apiInstance.findPetsByTags(tags);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PetApi#findPetsByTags");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        // Configure OAuth2 access token for authorization: petstore_auth
+        OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
+        petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+        PetApi apiInstance = new PetApi(defaultClient);
+        List<String> tags = Arrays.asList(); // List<String> | Tags to filter by
+        try {
+            List<Pet> result = apiInstance.findPetsByTags(tags);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PetApi#findPetsByTags");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -290,39 +290,39 @@ Find pet by ID
 Returns a single pet
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.auth.*;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.PetApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
-    
-    // Configure API key authorization: api_key
-    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-    api_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //api_key.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    PetApi apiInstance = new PetApi(defaultClient);
-    Long petId = 56L; // Long | ID of pet to return
-    try {
-      Pet result = apiInstance.getPetById(petId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PetApi#getPetById");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        // Configure API key authorization: api_key
+        ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+        api_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key.setApiKeyPrefix("Token");
+
+        PetApi apiInstance = new PetApi(defaultClient);
+        Long petId = 56L; // Long | ID of pet to return
+        try {
+            Pet result = apiInstance.getPetById(petId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PetApi#getPetById");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -359,36 +359,36 @@ public class Example {
 Update an existing pet
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.auth.*;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.PetApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
-    
-    // Configure OAuth2 access token for authorization: petstore_auth
-    OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
-    petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    PetApi apiInstance = new PetApi(defaultClient);
-    Pet body = new Pet(); // Pet | Pet object that needs to be added to the store
-    try {
-      apiInstance.updatePet(body);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PetApi#updatePet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        // Configure OAuth2 access token for authorization: petstore_auth
+        OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
+        petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+        PetApi apiInstance = new PetApi(defaultClient);
+        Pet body = new Pet(); // Pet | Pet object that needs to be added to the store
+        try {
+            apiInstance.updatePet(body);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PetApi#updatePet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -425,38 +425,38 @@ null (empty response body)
 Updates a pet in the store with form data
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.auth.*;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.PetApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
-    
-    // Configure OAuth2 access token for authorization: petstore_auth
-    OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
-    petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    PetApi apiInstance = new PetApi(defaultClient);
-    Long petId = 56L; // Long | ID of pet that needs to be updated
-    String name = "name_example"; // String | Updated name of the pet
-    String status = "status_example"; // String | Updated status of the pet
-    try {
-      apiInstance.updatePetWithForm(petId, name, status);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PetApi#updatePetWithForm");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        // Configure OAuth2 access token for authorization: petstore_auth
+        OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
+        petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+        PetApi apiInstance = new PetApi(defaultClient);
+        Long petId = 56L; // Long | ID of pet that needs to be updated
+        String name = "name_example"; // String | Updated name of the pet
+        String status = "status_example"; // String | Updated status of the pet
+        try {
+            apiInstance.updatePetWithForm(petId, name, status);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PetApi#updatePetWithForm");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -493,39 +493,39 @@ null (empty response body)
 uploads an image
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.auth.*;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.PetApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
-    
-    // Configure OAuth2 access token for authorization: petstore_auth
-    OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
-    petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    PetApi apiInstance = new PetApi(defaultClient);
-    Long petId = 56L; // Long | ID of pet to update
-    String additionalMetadata = "additionalMetadata_example"; // String | Additional data to pass to server
-    File _file = new File("/path/to/file"); // File | file to upload
-    try {
-      ModelApiResponse result = apiInstance.uploadFile(petId, additionalMetadata, _file);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PetApi#uploadFile");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        // Configure OAuth2 access token for authorization: petstore_auth
+        OAuth petstore_auth = (OAuth) defaultClient.getAuthentication("petstore_auth");
+        petstore_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+        PetApi apiInstance = new PetApi(defaultClient);
+        Long petId = 56L; // Long | ID of pet to update
+        String additionalMetadata = "additionalMetadata_example"; // String | Additional data to pass to server
+        File _file = new File("/path/to/file"); // File | file to upload
+        try {
+            ModelApiResponse result = apiInstance.uploadFile(petId, additionalMetadata, _file);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PetApi#uploadFile");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
