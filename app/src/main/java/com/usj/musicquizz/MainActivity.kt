@@ -6,17 +6,20 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewTreeObserver
 import android.view.animation.AnticipateInterpolator
+import android.widget.Toast
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.splashscreen.SplashScreenViewProvider
-import com.usj.musicquizz.api.SongsServiceApi
+import androidx.fragment.app.FragmentContainerView
+import com.usj.musicquizzapi.api.SongsServiceApi
 import com.usj.musicquizz.databinding.ActivityMainBinding
-import com.usj.musicquizz.model.Song
+import com.usj.musicquizzapi.model.Song
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.IOException
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AnswersListener {
 var isReady:Boolean = false
     val songs: MutableList<Song>? = null
     private val view by lazy {
@@ -61,18 +64,34 @@ var isReady:Boolean = false
 
         setContentView(view.root)
         //splash.setKeepOnScreenCondition{ true }
-        scope.launch {
-            val songs = songsServiceApi.findAll()
-            if (songs.isNotEmpty()){
-                isReady = true
-            }
-            print(songs)
-        }
+        searchSongs()
     }
 
     override fun onStart() {
         super.onStart()
         //isReady = true
+    }
+
+    private fun searchSongs(){
+        try {
+            scope.launch {
+                val songs = songsServiceApi.findAll()
+                if (songs.isNotEmpty()){
+                    isReady = true
+                    findViewById<FragmentContainerView>(R.id.fragmet_container)
+                        ?.let {
+                            frameLayout ->
+                            val homeFragment = HomeFragment()
+                        supportFragmentManager.beginTransaction()
+                            .replace(frameLayout.id, homeFragment)
+                            .commit()
+                    }
+                }
+                print(songs)
+            }
+        }catch (e:IOException){
+
+        }
     }
 
     private fun animateSplashScreen(splashScreenView: SplashScreenViewProvider){
@@ -92,5 +111,9 @@ var isReady:Boolean = false
 
         // Run your animation.
         slideUp.start()
+    }
+
+    override fun onSelected(questionId: Int, name:String) {
+        Toast.makeText(this, name, Toast.LENGTH_LONG).show()
     }
 }
