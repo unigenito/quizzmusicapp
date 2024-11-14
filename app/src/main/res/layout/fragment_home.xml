@@ -17,7 +17,6 @@
         android:textColor="@color/black"
         android:layout_width="306dp"
         android:layout_height="wrap_content"
-        android:autofillHints=""
         android:hint="@string/name_hint"
         android:inputType="text"
         android:minHeight="48dp"

@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), AnswersListener {
 
     private val songsServiceApi by lazy {
         val api = SongsServiceApi()
-        api.customBaseUrl = "http://10.0.2.2:8080"
+        api.customBaseUrl = "http://${getString(R.string.host)}:8080"
         api
     }
 

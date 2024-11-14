@@ -7,8 +7,10 @@ import kotlin.random.Random
 
 class QuizzViewModel: ViewModel() {
     var mutableList:MutableLiveData<MutableList<Song>> = MutableLiveData()
+    private lateinit var playerName:String
+    private var calification: Int = 0
 
-    fun getSongsQuiz(quantity: Int = 4): MutableList<Song> {
+    fun getSongsQuiz(quantity: Int = 3): MutableList<Song> {
 
         var qt = quantity
         if (mutableList.value?.count()!! < quantity){
@@ -23,4 +25,15 @@ class QuizzViewModel: ViewModel() {
 
         return list
     }
+
+    fun setPoint(point: Int){
+        calification += point
+    }
+
+    fun setName(name: String){
+        playerName = name
+    }
+
+    fun getName():  String = playerName
+    fun getCalification():  Int = calification
 }
