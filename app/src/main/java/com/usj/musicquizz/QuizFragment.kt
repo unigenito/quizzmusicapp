@@ -243,4 +243,17 @@ class QuizFragment : Fragment(), View.OnClickListener {
         opportunities--
         timeLeft = 15
     }
+
+    override fun onResume() {
+        super.onResume()
+        // Override back button behavior
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    resetValues()
+                    stopAndReleaseSong()
+                }
+            })
+    }
 }
