@@ -26,8 +26,8 @@ import java.io.IOException
 
 class MainActivity : AppCompatActivity(), AnswersListener {
     private var isReady:Boolean = false
-    private var point:Int = 0
     private lateinit var songs: MutableList<Song>
+    private lateinit var songsVM: QuizzViewModel
 
     private val view by lazy {
         ActivityMainBinding.inflate(layoutInflater)
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), AnswersListener {
 
         super.onCreate(savedInstanceState)
 
-        val songsVM: QuizzViewModel = ViewModelProvider(this)[QuizzViewModel::class.java]
+        songsVM = ViewModelProvider(this)[QuizzViewModel::class.java]
 
         // Set up an OnPreDrawListener to the root view.
         val content: View = findViewById(android.R.id.content)
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity(), AnswersListener {
     }
 
     private  fun replaceFragment(fragment: Fragment){
-        findViewById<FragmentContainerView>(R.id.fragmet_container)
+        findViewById<FragmentContainerView>(R.id.fragment_container)
             ?.let {
                     frameLayout ->
                 supportFragmentManager.beginTransaction()
@@ -133,6 +133,7 @@ class MainActivity : AppCompatActivity(), AnswersListener {
     }
 
     override fun onSelected(questionId: Int, name:String) {
+        songsVM.setName(name)
         Toast.makeText(this, name, Toast.LENGTH_LONG).show()
         replaceFragment(QuizFragment.newInstance(name))
     }

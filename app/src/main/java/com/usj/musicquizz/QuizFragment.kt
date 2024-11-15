@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.usj.musicquizz.model.QuizzViewModel
@@ -19,6 +20,7 @@ import java.io.IOException
 import java.util.Timer
 import java.util.TimerTask
 import kotlin.random.Random
+import kotlin.time.Duration.Companion.seconds
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_NAME = "name"
@@ -34,7 +36,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
     private lateinit var tvTimer: TextView
     private var name: String? = null
     private lateinit var songsVM: QuizzViewModel
-    private var timeLeft = 10
+    private var timeLeft = 15
     private var opportunities = 4
     private val handler = Handler(Looper.getMainLooper())
     private var mediaPlayer: MediaPlayer? = null
@@ -103,7 +105,8 @@ class QuizFragment : Fragment(), View.OnClickListener {
 
     private fun playAudio(song: Song){
             try {
-                song.file?.let {
+                song.file?.let { it ->
+                    stopAndReleaseSong()
                     mediaPlayer = MediaPlayer()
                     // Initialize the MediaPlayer with the audio resource
                     mediaPlayer?.setDataSource(formatUrl(it) )
@@ -112,6 +115,16 @@ class QuizFragment : Fragment(), View.OnClickListener {
 
                     // Set up listener for when the media is prepared
                     mediaPlayer?.setOnPreparedListener {
+                        val seconds = mediaPlayer?.duration
+                        seconds.let {
+                            second ->
+                            if (second != null) {
+                                if ((second/1000)  < 15) {
+                                    opportunities = (second/1000)
+                                }
+                            }
+                        }
+
                         mediaPlayer?.start() // Start playback when ready
                         startTimer()
                     }
@@ -123,18 +136,22 @@ class QuizFragment : Fragment(), View.OnClickListener {
     }
 
     private fun playGame(){
-        clearView()
-        songsVM.getSongsQuiz().let { quizzViewModel ->
-            songs.clear()
-            quizzViewModel.forEach{ song ->
-                songs.add(song)
-                //clearView()
-                createButtonDynamically(song)
+        if (opportunities > 0){
+            clearView()
+            songsVM.getSongsQuiz().let { quizzViewModel ->
+                songs.clear()
+                quizzViewModel.forEach{ song ->
+                    songs.add(song)
+                    createButtonDynamically(song)
+                }
             }
-        }
 
-        index = Random.nextInt(songs.count())
-        playAudio(songs[index])
+            index = Random.nextInt(songs.count())
+            playAudio(songs[index])
+        }else{
+            stopAndReleaseSong()
+            goToResult()
+        }
     }
 
     private fun clearView() {
@@ -163,11 +180,13 @@ class QuizFragment : Fragment(), View.OnClickListener {
 
                 if (timeLeft == 0){
                     resetValues()
-                    stopAndReleaseSong()
                     if (opportunities > 0){
                         handler.post {
                             playGame()
                         }
+                    }else{
+                        stopAndReleaseSong()
+                        goToResult()
                     }
                 }
             }
@@ -194,8 +213,9 @@ class QuizFragment : Fragment(), View.OnClickListener {
     }
 
     private fun goToResult(){
-        var fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-
+        val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+        val fragment = ResultFragment()
+        fragmentTransaction.replace(R.id.fragment_container, fragment).commit()
     }
 
     override fun onClick(view: View?) {
@@ -203,6 +223,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
         if (view != null) {
             if (songs[index].id == view.id){
                 songsVM.setPoint(20)
+                songsVM.goodAnswer()
 
                 if (timeLeft >= 50)
                 {
@@ -214,14 +235,12 @@ class QuizFragment : Fragment(), View.OnClickListener {
             }
         }
         resetValues()
-        stopAndReleaseSong()
         playGame()
     }
 
     private fun resetValues() {
         timer.cancel()
         opportunities--
-        timeLeft = 10
-        songsVM.setPoint(0)
+        timeLeft = 15
     }
 }
