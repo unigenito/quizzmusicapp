@@ -8,17 +8,19 @@ import kotlin.random.Random
 class QuizzViewModel: ViewModel() {
     var mutableList:MutableLiveData<MutableList<Song>> = MutableLiveData()
     private lateinit var playerName:String
-    private var calification: Int = 0
+    private var qualification: Int = 0
+    private var qt: Int = 0
+    private var answer: Int = 0
 
-    fun getSongsQuiz(quantity: Int = 3): MutableList<Song> {
+    fun getSongsQuiz(quantity: Int = 4): MutableList<Song> {
 
-        var qt = quantity
+        qt = quantity
         if (mutableList.value?.count()!! < quantity){
             qt = mutableList.value?.count()!!
         }
 
         val list: MutableList<Song> = mutableListOf<Song>()
-        for (i in qt downTo 0){
+        for (i in qt-1 downTo 0){
             val index = mutableList.value?.let { Random.nextInt(1, it.count()) }
             index?.let { mutableList.value?.get(it) }?.let { list.add(it) }
         }
@@ -26,8 +28,18 @@ class QuizzViewModel: ViewModel() {
         return list
     }
 
+    fun goodAnswer(){
+        if (answer < qt){
+            answer++
+        }
+    }
+
+    fun getAnswer():String{
+        return "${answer}/${qt}"
+    }
+
     fun setPoint(point: Int){
-        calification += point
+        qualification += point
     }
 
     fun setName(name: String){
@@ -35,5 +47,5 @@ class QuizzViewModel: ViewModel() {
     }
 
     fun getName():  String = playerName
-    fun getCalification():  Int = calification
+    fun getQualification():  Int = qualification
 }
