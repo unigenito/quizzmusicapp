@@ -73,7 +73,6 @@ class MainActivity : AppCompatActivity(), AnswersListener {
         )
 
         setContentView(view.root)
-        //splash.setKeepOnScreenCondition{ true }
         searchSongs()
     }
 

@@ -19,7 +19,7 @@ class QuizzViewModel: ViewModel() {
             qt = mutableList.value?.count()!!
         }
 
-        val list: MutableList<Song> = mutableListOf<Song>()
+        val list: MutableList<Song> = mutableListOf()
         for (i in qt-1 downTo 0){
             val index = mutableList.value?.let { Random.nextInt(1, it.count()) }
             index?.let { mutableList.value?.get(it) }?.let { list.add(it) }
