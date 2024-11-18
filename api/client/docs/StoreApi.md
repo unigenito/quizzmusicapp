@@ -19,31 +19,32 @@ Delete purchase order by ID
 For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.StoreApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    StoreApi apiInstance = new StoreApi(defaultClient);
-    Long orderId = 56L; // Long | ID of the order that needs to be deleted
-    try {
-      apiInstance.deleteOrder(orderId);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling StoreApi#deleteOrder");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        StoreApi apiInstance = new StoreApi(defaultClient);
+        Long orderId = 56L; // Long | ID of the order that needs to be deleted
+        try {
+            apiInstance.deleteOrder(orderId);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling StoreApi#deleteOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -81,38 +82,38 @@ Returns pet inventories by status
 Returns a map of status codes to quantities
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.auth.*;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.StoreApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
-    
-    // Configure API key authorization: api_key
-    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-    api_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //api_key.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    StoreApi apiInstance = new StoreApi(defaultClient);
-    try {
-      Map<String, Integer> result = apiInstance.getInventory();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling StoreApi#getInventory");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        // Configure API key authorization: api_key
+        ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+        api_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key.setApiKeyPrefix("Token");
+
+        StoreApi apiInstance = new StoreApi(defaultClient);
+        try {
+            Map<String, Integer> result = apiInstance.getInventory();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling StoreApi#getInventory");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -146,32 +147,33 @@ Find purchase order by ID
 For valid response try integer IDs with value &gt;&#x3D; 1 and &lt;&#x3D; 10. Other values will generated exceptions
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.StoreApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    StoreApi apiInstance = new StoreApi(defaultClient);
-    Long orderId = 56L; // Long | ID of pet that needs to be fetched
-    try {
-      Order result = apiInstance.getOrderById(orderId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling StoreApi#getOrderById");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        StoreApi apiInstance = new StoreApi(defaultClient);
+        Long orderId = 56L; // Long | ID of pet that needs to be fetched
+        try {
+            Order result = apiInstance.getOrderById(orderId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling StoreApi#getOrderById");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -208,32 +210,33 @@ No authorization required
 Place an order for a pet
 
 ### Example
+
 ```java
 // Import classes:
+
 import com.usj.musicquizz.invoker.ApiClient;
 import com.usj.musicquizz.invoker.ApiException;
 import com.usj.musicquizz.invoker.Configuration;
-import com.usj.musicquizz.invoker.models.*;
 import com.usj.musicquizz.api.StoreApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://petstore.swagger.io/v2");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://petstore.swagger.io/v2");
 
-    StoreApi apiInstance = new StoreApi(defaultClient);
-    Order body = new Order(); // Order | order placed for purchasing the pet
-    try {
-      Order result = apiInstance.placeOrder(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling StoreApi#placeOrder");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        StoreApi apiInstance = new StoreApi(defaultClient);
+        Order body = new Order(); // Order | order placed for purchasing the pet
+        try {
+            Order result = apiInstance.placeOrder(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling StoreApi#placeOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 

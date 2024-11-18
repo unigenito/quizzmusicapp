@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">musicquizz</string>
+    <string name="name_hint">Insert your name</string>
+    <string name="start_game">Start quizz</string>
+    <string name="start_continue">Continue</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="question_text">What song is this?</string>
+    <string name="text_timer">Timer</string>
+    <string name="host">10.0.2.2</string>
+    <string name="answer">Answers:</string>
+    <string name="point">Points</string>
+    <string name="answer_0_0">0/0</string>
+    <string name="point_0">0</string>
+    <string name="player">Player name</string>
+    <string name="end">Finish</string>
+    <string name="timeleft">Time left: %1d</string>
 </resources>
