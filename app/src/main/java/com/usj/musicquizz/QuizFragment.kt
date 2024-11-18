@@ -20,11 +20,9 @@ import java.io.IOException
 import java.util.Timer
 import java.util.TimerTask
 import kotlin.random.Random
-import kotlin.time.Duration.Companion.seconds
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_NAME = "name"
-private const val ARG_SONGS = "songs"
 
 /**
  * A simple [Fragment] subclass.
@@ -49,7 +47,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
 
         arguments?.let {
             name = it.getString(ARG_NAME)
-            //songs = it.getParcelableArray(ARG_PARAM2, MutableList<Song>)
         }
     }
 
@@ -90,7 +87,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
     }
 
     private fun formatUrl(url: String): String{
-        return url.replace("localhost", getString(R.string.host)) ?: url
+        return url.replace("localhost", getString(R.string.host))
     }
 
     private fun stopAndReleaseSong() {
@@ -105,7 +102,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
 
     private fun playAudio(song: Song){
             try {
-                song.file?.let { it ->
+                song.file?.let {
                     stopAndReleaseSong()
                     mediaPlayer = MediaPlayer()
                     // Initialize the MediaPlayer with the audio resource
@@ -174,7 +171,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
             override fun run() {
                 // Update the TextView using the handler
                 handler.post {
-                    tvTimer.text = "Time: $timeLeft"
+                    tvTimer.text = getString(R.string.timeleft, timeLeft)
                     timeLeft--
                 }
 
@@ -199,7 +196,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
          * this fragment using the provided parameters.
          *
          * @param name Parameter 1.
-         * @param songs Parameter 2.
          * @return A new instance of fragment QuizFragment.
          */
         @JvmStatic
@@ -207,7 +203,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
             QuizFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_NAME, name)
-                    //putParcelableArray(ARG_SONGS, songs)
                 }
             }
     }
